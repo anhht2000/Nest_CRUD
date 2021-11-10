@@ -12,11 +12,22 @@ export class PhotoProvider {
   }
 
   async createPhoto(photo: CreatePhotoDto) {
-    // const data = await getManager().create(Photo, photo);
     const dt = new Photo();
     Object.assign(dt, photo);
-    getManager().save(dt);
+    await getManager().save(dt);
 
     return dt;
+  }
+
+  async editPhoto(id: number, photo: CreatePhotoDto) {
+    const pt = await getManager().update(Photo, id, { ...photo });
+
+    return photo;
+  }
+
+  async deletePhoto(id: number) {
+    const pt = await getManager().delete(Photo, id);
+
+    return 'photo';
   }
 }
