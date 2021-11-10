@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule, registerAs } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PhotoModule } from './photo/photo.module';
 
+ConfigModule.forRoot();
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -12,7 +14,7 @@ import { PhotoModule } from './photo/photo.module';
       port: 3306,
       username: 'root',
       password: null,
-      database: 'nestjs',
+      database: process.env.database_name,
       // entities: [__dirname + '/../**/*.entity{.ts,.js}'],
       autoLoadEntities: true,
       synchronize: true,
