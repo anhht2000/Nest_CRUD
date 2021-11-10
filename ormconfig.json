@@ -1,0 +1,16 @@
+{
+  "type": "mysql",
+  "host": "localhost",
+  "port": 3306,
+  "username": "root",
+  "password": null,
+  "database": "nestjs",
+  "synchronize": false,
+  "entities": ["src/**/*.entity.{ts,js}"],
+  "migrationsTableName": "custom_migration_table",
+  "migrations": ["src/migration/*.ts"],
+  "cli": {
+    "entitiesDir": "src/models",
+    "migrationsDir": "src/migration"
+  }
+}
