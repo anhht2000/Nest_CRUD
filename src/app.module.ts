@@ -5,26 +5,14 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { Photo } from './photo/photo.entity';
 import { PhotoModule } from './photo/photo.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: null,
-      database: 'nestjs',
-      entities: [Photo],
-      synchronize: false,
-      migrationsTableName: 'custom_migration_table',
-      migrations: ['migration/*.ts'],
-      cli: {
-        migrationsDir: 'migration',
-      },
-    }),
+    TypeOrmModule.forRoot(),
     PhotoModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
