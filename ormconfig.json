@@ -5,12 +5,12 @@
   "username": "root",
   "password": null,
   "database": "nestjs",
-  "synchronize": false,
-  "entities": ["src/**/*.entity.{ts,js}"],
+  "synchronize": true,
+  "entities": ["dist/src/**/*.entity.{ts,js}"],
   "migrationsTableName": "custom_migration_table",
-  "migrations": ["src/migration/*.ts"],
+  "migrations": ["dist/src/migration/*.ts"],
   "cli": {
-    "entitiesDir": "src/models",
+    "entitiesDir": "src/photo",
     "migrationsDir": "src/migration"
   }
 }
